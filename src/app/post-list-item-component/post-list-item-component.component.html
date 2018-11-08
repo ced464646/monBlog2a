@@ -1,0 +1,15 @@
+
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': postLoveIts > 0,
+                'list-group-item-danger': postLoveIts  < 0}">
+    <h4>{{postTitle}} <small [ngClass]="{'pull-right': true}" [ngStyle]="{'font-style': 'italic'}">{{ postCreated_at | date: 'd/MM/y h:mm a' | uppercase }}</small></h4>
+    <p>{{postContent}}</p>
+    <p>Love: {{postLoveIts}}</p>
+    <div class="btn-group btn-group-sm">
+   <a name="loveIt" class="btn btn-success form-control"  (click)="onIncrease()" required [(ngModel)]="postLoveIts" ngDefaultControl>Love it</a></div>
+   <div class="btn-group btn-group-sm">
+    <a class="btn btn-danger form-control"  (click)="onDecrease()" [(ngModel)]="postLoveIts" ngDefaultControl>Don't love it</a>
+</div>
+  <button type="button" class="btn-danger pull-right" (click)="onDeletePost()">Supprimer post</button>
+
+</li>
